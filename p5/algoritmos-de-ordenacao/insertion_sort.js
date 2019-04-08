@@ -13,7 +13,7 @@ function setup() {
   background(0);
   strokeWeight(4);
   preencheVetor()
-  frameRate(10);
+  frameRate(2);
   textAlign(CENTER);
 }
 
@@ -22,8 +22,6 @@ function draw() {
   escreveNaTela(false)
   textSize(15)
   desenhaCirculo(array);
-
-  console.log("Antes do loop midsort: ",midsorting)
 
   if (i >= array.length) {
     escreveNaTela(true)
@@ -59,8 +57,15 @@ function desenhaCirculo(arr) {
   var maxEl = Math.max.apply(null, arr);
 
   arr.forEach(function(el, index) {
-    if(index === j) fill(255,0,0);
-    else fill(255);
+   
+    if(index === j){
+      fill(255,0,0);
+    }else if(index === i) {
+      fill(0,255,0)
+    }
+    else{
+      fill(255);
+    }
   
     var x = 50 * index + (600-((valorAleaotrio/2)*70));
     circle(x, largura/2, arr[index]+5);
